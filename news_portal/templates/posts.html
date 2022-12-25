@@ -8,6 +8,10 @@ News
 {% endblock title %}
 
 {% block content %}
+<button> <a href="/sign/logout/">Выйти</a> </button>
+{% if is_not_author %}
+<button> <a href="/sign/upgrade/"> Хочу стать автором!</a> </button>
+{% endif %}
    <h1>Все новости и статьи</h1>
    <hr>
    {% if posts %}
