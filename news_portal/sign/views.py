@@ -19,3 +19,12 @@ def upgrade_me(request):
     if not request.user.groups.filter(name='authors').exists():
         authors_group.user_set.add(user)
     return redirect('/news/')
+
+
+@login_required
+def recipients_email(request):
+    user = request.user
+    recipients_group = Group.objects.get(name='recipients')
+    if not request.user.groups.filter(name='recipients').exists():
+        recipients_group.user_set.add(user)
+    return redirect('/news/')

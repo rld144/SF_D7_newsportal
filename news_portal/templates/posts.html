@@ -12,6 +12,9 @@ News
 {% if is_not_author %}
 <button> <a href="/sign/upgrade/"> Хочу стать автором!</a> </button>
 {% endif %}
+{% if is_not_recipient %}
+<button> <a href="/sign/recipient/"> Получать письма по почте!</a> </button>
+{% endif %}
    <h1>Все новости и статьи</h1>
    <hr>
    {% if posts %}
