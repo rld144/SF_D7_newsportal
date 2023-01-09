@@ -15,4 +15,9 @@ app.conf.beat_schedule = {
         'task': 'newsportal.tasks.scheduler_week',
         'schedule': crontab(hour=8, minute=0, day_of_week='monday'),
     },
+    'for_subcribers_week_category': {
+        'task': 'newsportal.tasks.scheduler_week_category',
+        'schedule': crontab(hour=8, minute=0, day_of_week='monday'),
+    },
 }
+

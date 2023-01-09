@@ -9,4 +9,5 @@ class PostFilter(FilterSet):
             'header': ['icontains'],
             'text': ['icontains'],
             'date': ['date__gt'],
+            'categories': ['exact'],
     }

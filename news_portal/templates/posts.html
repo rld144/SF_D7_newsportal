@@ -13,17 +13,25 @@ News
 <button> <a href="/sign/upgrade/"> Хочу стать автором!</a> </button>
 {% endif %}
 {% if is_not_recipient %}
-<button> <a href="/sign/recipient/"> Получать письма по почте!</a> </button>
+<button> <a href="/sign/recipient/"> Получать письмо о новых постов!</a> </button>
 {% endif %}
    <h1>Все новости и статьи</h1>
    <hr>
+
    {% if posts %}
        <table>
+           <tr>
+               <td>Название</td>
+               <td>Дата</td>
+               <td>Содержание</td>
+               <td>id</td>
+           </tr>
            {% for post in posts %}
            <tr>
-               <td>{{ post }}</td>
+               <td> <a href="http://127.0.0.1:8000/news/{{post.id}}">{{ post }}</a></td>
                <td>{{ post.date|date:'d M Y' }}</td>
                <td>{{ post.text|truncatechars:20 }}</td>
+               <td>{{ post.id }}</td>
            </tr>
            {% endfor %}
        </table>
@@ -49,5 +57,7 @@ News
            <a href="?{% url_replace page=page_obj.paginator.num_pages %}">{{ page_obj.paginator.num_pages }}</a>
        {% endif %}
    {% endif %}
+<hr>
+<button> <a href="/sign/subscribe/"> Подписаться на категории постов!</a> </button>
 
 {% endblock content %}

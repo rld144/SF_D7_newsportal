@@ -1,0 +1,25 @@
+{% extends 'flatpages/default.html' %}
+
+{% block title %}
+Subscribtion
+{% endblock title %}
+
+{% block content %}
+<h1>Подписка на категории</h1>
+<form action="" method="get">
+   {# Переменная, которую мы передали через контекст, может сгенерировать нам форму с полями #}
+   {{ filterset.form.as_p }}
+   {# Добавим кнопку отправки данных формы #}
+   <input type="submit" value="Подписаться" />
+</form>
+<br>
+<hr>
+<h2>Ваши подписки</h2>
+{% if user_cats %}
+    {% for i in user_cats %}
+        <br>{{ i.category.name }}
+    {% endfor %}
+{% else %}
+НЕТ ПОДПИСОК
+{% endif %}
+{% endblock content %}
